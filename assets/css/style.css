@@ -1,0 +1,117 @@
+/* Style for the body */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style for the container */
+  .container {
+    margin-top: 20px;
+  }
+  
+  /* Style for the search input */
+  .form-group label {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the search button */
+  #search-button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  #search-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Style for the current weather section */
+  #current-weather {
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  #current-weather h2 {
+    margin-top: 0;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  #current-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  #current-temperature {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  #current-humidity,
+  #current-wind-speed {
+    font-size: 18px;
+  }
+  
+  /* Style for the forecast section */
+  #forecast {
+    margin-top: 40px;
+  }
+  
+  #forecast h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  #forecast-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #forecast-list li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Style for the search history section */
+  #search-history {
+    margin-top: 40px;
+  }
+  
+  #search-history h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  #search-history-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #search-history-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
