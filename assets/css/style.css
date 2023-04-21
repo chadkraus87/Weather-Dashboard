@@ -1,16 +1,26 @@
-/* Style for the body */
-body {
-    font-family: Arial, sans-serif;
+/* Style for the heading */
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    color: #f1c40f;
+    margin-top: 20px;
+    text-shadow: 2px 2px #2c3e50;
+  }
+  
+  /* Style for the body */
+  body {
+    font-family: 'Signika Negative', sans-serif;
   }
   
   /* Style for the container */
   .container {
-    margin-top: 20px;
+    margin-top: 50px;
   }
   
   /* Style for the search input */
   .form-group label {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     display: block;
     margin-bottom: 10px;
@@ -19,40 +29,43 @@ body {
   .form-control {
     width: 100%;
     padding: 10px;
-    font-size: 18px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid #2c3e50;
     margin-bottom: 20px;
   }
   
   /* Style for the search button */
   #search-button {
-    background-color: #4CAF50;
+    background-color: #e74c3c;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px 20px;
     cursor: pointer;
   }
   
   #search-button:hover {
-    background-color: #3e8e41;
+    background-color: #c0392b;
   }
   
   /* Style for the current weather section */
   #current-weather {
     margin-top: 40px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #f1c40f;
+    border-radius: 10px;
     padding: 20px;
+    background-color: #ecf0f1;
+    box-shadow: 2px 2px #2c3e50;
   }
   
   #current-weather h2 {
     margin-top: 0;
-    font-size: 36px;
+    font-size: 42px;
     font-weight: bold;
+    color: #2c3e50;
   }
   
   #current-icon {
@@ -61,13 +74,16 @@ body {
   }
   
   #current-temperature {
-    font-size: 36px;
+    font-size: 48px;
     font-weight: bold;
+    color: #2c3e50;
+    text-shadow: 1px 1px #f1c40f;
   }
   
   #current-humidity,
   #current-wind-speed {
-    font-size: 18px;
+    font-size: 24px;
+    color: #2c3e50;
   }
   
   /* Style for the forecast section */
@@ -76,8 +92,9 @@ body {
   }
   
   #forecast h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+    color: #2c3e50;
   }
   
   #forecast-list {
@@ -88,9 +105,10 @@ body {
   
   #forecast-list li {
     display: inline-block;
-    margin-right: 20px;
-    font-size: 18px;
+    margin-right: 30px;
+    font-size: 24px;
     font-weight: bold;
+    color: #2c3e50;
   }
   
   /* Style for the search history section */
@@ -99,8 +117,9 @@ body {
   }
   
   #search-history h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+    color: #2c3e50;
   }
   
   #search-history-list {
@@ -111,7 +130,8 @@ body {
   
   #search-history-list li {
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
+    color: #2c3e50;
   }
   

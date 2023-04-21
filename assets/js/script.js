@@ -1,3 +1,5 @@
+var API_KEY = "6879f3075989c23c37f03376a700eee0";
+
 function displayWeather(data) {
   $("#city-name").text(data.city.name);
   var current = data.list[0];
