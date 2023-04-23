@@ -11,9 +11,9 @@ function displayWeather(data) {
   $("#current-temperature").text(current.main.temp.toFixed(1) + " °F");
   $("#current-humidity").text(current.main.humidity + "%");
   $("#current-wind-speed").text(current.wind.speed.toFixed(1) + " mph");
-  var forecast = data.list.slice(1, 6);
+  var forecast = data.list.slice(1, 26);
   $("#forecast-list").empty();
-  for (var i = 0; i < forecast.length; i++) {
+  for (var i = 0; i < forecast.length; i += 8) {
     var item = $("<li>");
     item.append($("<span>").text(formatDate(forecast[i].dt)));
     item.append(
@@ -94,7 +94,7 @@ function addToSearchHistory(city) {
   var history = JSON.parse(localStorage.getItem("searchHistory")) || [];
   if (!history.includes(city)) {
     history.unshift(city);
-    if (history.length > 5) {
+    if (history.length > 10) {
       history.pop();
     }
     localStorage.setItem("searchHistory", JSON.stringify(history));
