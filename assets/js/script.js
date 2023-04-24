@@ -1,38 +1,5 @@
 var API_KEY = "6879f3075989c23c37f03376a700eee0";
 
-// function displayWeather(data) {
-//   $("#city-name").text(data.city.name);
-//   var current = data.list[0];
-//   $("#current-date").text(formatDate(current.dt));
-//   $("#current-icon").attr(
-//     "src",
-//     "https://openweathermap.org/img/w/" + current.weather[0].icon + ".png"
-//   );
-//   $("#current-temperature").text(current.main.temp.toFixed(1) + " °F");
-//   $("#current-humidity").text(current.main.humidity + "%");
-//   $("#current-wind-speed").text(current.wind.speed.toFixed(1) + " mph");
-//   var forecast = data.list.slice(1, 26);
-//   $("#forecast-list").empty();
-//   for (var i = 0; i < forecast.length; i += 8) {
-//     var item = $("<li>");
-//     item.append($("<span>").text(formatDate(forecast[i].dt)));
-//     item.append(
-//       $("<img>").attr(
-//         "src",
-//         "https://openweathermap.org/img/w/" +
-//           forecast[i].weather[0].icon +
-//           ".png"
-//       )
-//     );
-//     item.append(
-//       $("<span>").text(forecast[i].main.temp.toFixed(1) + " °F")
-//     );
-//     item.append($("<span>").text(forecast[i].wind.speed.toFixed(1) + " mph"));
-//     item.append($("<span>").text(forecast[i].main.humidity + "%"));
-//     $("#forecast-list").append(item);
-//   }
-// }
-
 function displayWeather(data) {
   $("#city-name").text(data.city.name);
   var current = data.list[0];
@@ -69,6 +36,10 @@ function displayWeather(data) {
     item.append($("<span>").text(forecast[i].main.humidity + "%"));
     $("#forecast-list").append(item);
   }
+  // Set the storage key for the forecast data
+  var storageKey = "weather-forecast-" + data.city.name;
+  // Save the forecast data to local storage
+  localStorage.setItem(storageKey, JSON.stringify(forecast));
 }
 
 function getFormattedDate(date) {
@@ -78,6 +49,18 @@ function getFormattedDate(date) {
   return year + "-" + month + "-" + day;
 }
 
+// Load the forecast data from local storage, if available
+var storageKey = "weather-forecast-" + $("#city-name").text();
+var storedForecast = localStorage.getItem(storageKey);
+if (storedForecast !== null) {
+  // Display the stored forecast data
+  displayWeather({city: {name: $("#city-name").text()}, list: JSON.parse(storedForecast)});
+} else {
+  // Retrieve the forecast data from the API and display it
+  $.get("https://api.openweathermap.org/data/2.5/forecast?q=" + $("#city-name").text() + "&units=imperial&appid=YOUR_API_KEY_HERE", function(data) {
+    displayWeather(data);
+  });
+}
 
 function searchCity(city) {
   // add city parameter
