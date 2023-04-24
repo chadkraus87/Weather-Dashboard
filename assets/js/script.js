@@ -1,5 +1,38 @@
 var API_KEY = "6879f3075989c23c37f03376a700eee0";
 
+// function displayWeather(data) {
+//   $("#city-name").text(data.city.name);
+//   var current = data.list[0];
+//   $("#current-date").text(formatDate(current.dt));
+//   $("#current-icon").attr(
+//     "src",
+//     "https://openweathermap.org/img/w/" + current.weather[0].icon + ".png"
+//   );
+//   $("#current-temperature").text(current.main.temp.toFixed(1) + " °F");
+//   $("#current-humidity").text(current.main.humidity + "%");
+//   $("#current-wind-speed").text(current.wind.speed.toFixed(1) + " mph");
+//   var forecast = data.list.slice(1, 26);
+//   $("#forecast-list").empty();
+//   for (var i = 0; i < forecast.length; i += 8) {
+//     var item = $("<li>");
+//     item.append($("<span>").text(formatDate(forecast[i].dt)));
+//     item.append(
+//       $("<img>").attr(
+//         "src",
+//         "https://openweathermap.org/img/w/" +
+//           forecast[i].weather[0].icon +
+//           ".png"
+//       )
+//     );
+//     item.append(
+//       $("<span>").text(forecast[i].main.temp.toFixed(1) + " °F")
+//     );
+//     item.append($("<span>").text(forecast[i].wind.speed.toFixed(1) + " mph"));
+//     item.append($("<span>").text(forecast[i].main.humidity + "%"));
+//     $("#forecast-list").append(item);
+//   }
+// }
+
 function displayWeather(data) {
   $("#city-name").text(data.city.name);
   var current = data.list[0];
@@ -11,7 +44,12 @@ function displayWeather(data) {
   $("#current-temperature").text(current.main.temp.toFixed(1) + " °F");
   $("#current-humidity").text(current.main.humidity + "%");
   $("#current-wind-speed").text(current.wind.speed.toFixed(1) + " mph");
-  var forecast = data.list.slice(1, 26);
+  
+  var tomorrowIndex = data.list.findIndex(function(item) {
+    return item.dt_txt.includes("12:00:00") && item.dt_txt.includes(getFormattedDate(new Date(Date.now() + 24 * 60 * 60 * 1000)));
+  });
+  
+  var forecast = data.list.slice(tomorrowIndex, tomorrowIndex + 5 * 8);
   $("#forecast-list").empty();
   for (var i = 0; i < forecast.length; i += 8) {
     var item = $("<li>");
@@ -32,6 +70,14 @@ function displayWeather(data) {
     $("#forecast-list").append(item);
   }
 }
+
+function getFormattedDate(date) {
+  var year = date.getFullYear();
+  var month = ("0" + (date.getMonth() + 1)).slice(-2);
+  var day = ("0" + date.getDate()).slice(-2);
+  return year + "-" + month + "-" + day;
+}
+
 
 function searchCity(city) {
   // add city parameter

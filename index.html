@@ -17,6 +17,35 @@
     <title>Weather App</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-ecf0f1">
+      <div class="container-fluid">
+        <a class="navbar-title" href="#">Home</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" a href="https://github.com/chadkraus87/">GitHub</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" a href="https://chadkraus87.github.io/Professional-Portfolio/">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" a href="mailto:chad@kraus-fit.com">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="container">
       <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -34,8 +63,8 @@
             <h2><span id="city-name"></span></h2>
             <p><img id="current-icon" /></p>
             <p><span id="current-temperature"></span></p>
-            <p><span id="current-humidity"></span></p>
-            <p><span id="current-wind-speed"></span></p>
+            <p><h4>Humidity:</h4><span id="current-humidity"></span></p>
+            <p><h4>Wind Speed:</h4><span id="current-wind-speed"></span></p>
           </div>
         </div>
         <div class="col-md-4">
@@ -58,7 +87,7 @@
   </body>
   <footer class="footer">
     <p>512.650.7633</p>
-    <p>© 2023 Chad Kraus</p>
+    <p>© 2023 Chad Kraus - Weather by <a href="https://openweathermap.org/">OpenWeather</a></p>
     <a href="mailto:chad@kraus-fit.com">
       <p>chad@kraus-fit.com</p>
     </a>
