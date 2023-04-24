@@ -3,9 +3,7 @@ A weather dashboard application.
 
 ## Description
 
-This webpage highlights a simple, work day scheduler application from 9 AM - 5 PM that allows the user to store data for each hour of the day and save their information to local storage after clicking the Save icon. After the user clicks the Save button for their chosen time block, the user is presented with an alert box notifiying them that their changes have been saved. When the page refreshes, the save data remains until it is deleted by the user.
-
-This calendar also includes the ability to display the current date and time, based on the user's location. Additional HTML has been added to show a color key to the user for past, present, and future events. For added inspiration to help you through the work day, additional JavaScript code has been added into the footer to display a random quote generator of pre-stored, inspirational quotes. A background image has been added and the CSS has been modified to match the background image colors.
+...
 
 [Deployed App](https://chadkraus87.github.io/Weather-Dashboard)
 
@@ -17,7 +15,7 @@ No installation necessary for this application. If you would like to use this co
 
 ## Usage
 
-In order to assist the user with scheduling their work day and keeping track of events or appointments, this web application offers blocks of time to schedule and save information locally. If the user navigates away from the page, their information is stored until the user chooses to delete the data. For accessibility purposes, a color key has been added to show past, present, and future time slots.
+...
 
 ## Credits
 

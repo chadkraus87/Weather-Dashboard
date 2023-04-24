@@ -57,7 +57,7 @@ if (storedForecast !== null) {
   displayWeather({city: {name: $("#city-name").text()}, list: JSON.parse(storedForecast)});
 } else {
   // Retrieve the forecast data from the API and display it
-  $.get("https://api.openweathermap.org/data/2.5/forecast?q=" + $("#city-name").text() + "&units=imperial&appid=YOUR_API_KEY_HERE", function(data) {
+  $.get("https://api.openweathermap.org/data/2.5/forecast?q=" + $("#city-name").text() + "&units=imperial&appid=6879f3075989c23c37f03376a700eee0", function(data) {
     displayWeather(data);
   });
 }
@@ -139,4 +139,3 @@ function addToSearchHistory(city) {
     }
   }
 }
-
