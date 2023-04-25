@@ -31,6 +31,8 @@ In order to provide the user with real-time, weather forecast information of the
 
 [Web API - Append Method](https://developer.mozilla.org/en-US/docs/Web/API/Element/append)
 
+[JQuery Ajax](https://api.jquery.com/jquery.ajax/)
+
 [HTTP Methods - GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
 
 [jQuery API](https://api.jquery.com/)

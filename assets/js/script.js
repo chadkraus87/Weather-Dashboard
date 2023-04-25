@@ -21,6 +21,7 @@ function displayWeather(data) {
   for (var i = 0; i < forecast.length; i += 8) {
     var item = $("<li>");
     item.append($("<span>").text(formatDate(forecast[i].dt)));
+    item.append($("<br>"))
     item.append(
       $("<img>").attr(
         "src",
@@ -30,9 +31,11 @@ function displayWeather(data) {
       )
     );
     item.append(
-      $("<span>").text(forecast[i].main.temp.toFixed(1) + " °F")
+      $("<span>").text("   "+forecast[i].main.temp.toFixed(1) + " °F")
     );
+    item.append($("<br>"))
     item.append($("<span>").text(forecast[i].wind.speed.toFixed(1) + " mph"));
+    item.append($("<br>"))
     item.append($("<span>").text(forecast[i].main.humidity + "%"));
     $("#forecast-list").append(item);
   }
@@ -49,20 +52,9 @@ function getFormattedDate(date) {
   return year + "-" + month + "-" + day;
 }
 
-// Load the forecast data from local storage, if available
-var storageKey = "weather-forecast-" + $("#city-name").text();
-var storedForecast = localStorage.getItem(storageKey);
-if (storedForecast !== null) {
-  // Display the stored forecast data
-  displayWeather({city: {name: $("#city-name").text()}, list: JSON.parse(storedForecast)});
-} else {
-  // Retrieve the forecast data from the API and display it
-  $.get("https://api.openweathermap.org/data/2.5/forecast?q=" + $("#city-name").text() + "&units=imperial&appid=6879f3075989c23c37f03376a700eee0", function(data) {
-    displayWeather(data);
-  });
-}
-
 function searchCity(city) {
+  document.querySelector("#current-weather").classList.remove("hide-div");
+  document.querySelector("#forecast").classList.remove("hide-div");
   // add city parameter
   var url =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -70,6 +62,7 @@ function searchCity(city) {
     "&units=imperial&appid=6879f3075989c23c37f03376a700eee0";
   $.get(url)
     .done(function (data) {
+      console.log (data);
       localStorage.setItem("weatherData", JSON.stringify(data));
       displayWeather(data);
       addToSearchHistory(city);
@@ -86,7 +79,7 @@ function searchCity(city) {
 
 $(function () {
   // Define searchCity function and other code here
-  $("#search-button").click(function () {
+  $("#search-button").click(function () {    
     searchCity($("#city-input").val()); // pass city parameter
   });
 
@@ -96,18 +89,15 @@ $(function () {
   }
 
   var history = JSON.parse(localStorage.getItem("searchHistory")) || [];
-  $("#search-history").empty();
+  $("#search-history-list").empty();
   for (var i = 0; i < history.length; i++) {
     var item = $("<li>");
     var button = $("<button>")
       .text(history[i])
       .addClass("btn btn-link")
-      .click(function () {
-        // pass city parameter to searchCity function
-        searchCity($(this).text());
-      });
+      .attr("onclick", "searchCity('" + history[i] + "')");
     item.append(button);
-    $("#search-history").append(item);
+    $("#search-history-list").append(item);
   }
 });
 
@@ -127,7 +117,7 @@ function addToSearchHistory(city) {
       history.pop();
     }
     localStorage.setItem("searchHistory", JSON.stringify(history));
-    $("#search-history").empty();
+    $("#search-history-list").empty();
     for (var i = 0; i < history.length; i++) {
       var item = $("<li>");
       var button = $("<button>")
@@ -135,7 +125,7 @@ function addToSearchHistory(city) {
         .addClass("btn btn-link")
         .attr("onclick", "searchCity('" + history[i] + "')");
       item.append(button);
-      $("#search-history").append(item);
+      $("#search-history-list").append(item);
     }
   }
 }
