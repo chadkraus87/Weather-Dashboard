@@ -78,10 +78,10 @@ function searchCity(city) {
 }
 
 $(function () {
-  // searchCity function
   $("#search-button").click(function () {    
     searchCity($("#city-input").val()); // pass city parameter
-  });
+    $("#city-input").val(""); // empty the input field
+  });  
 
   var data = localStorage.getItem("weatherData");
   if (data) {
