@@ -87,6 +87,8 @@ h1 {
     font-size: 48px;
     font-weight: bold;
     color: #2c3e50;
+    text-align: center;
+    text-decoration: underline;
   }
   
   #current-icon {
@@ -157,6 +159,8 @@ h1 {
   #search-history h2 {
     font-size: 36px;
     font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
     color: #2c3e50;
   }
   

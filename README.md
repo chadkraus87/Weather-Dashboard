@@ -7,7 +7,7 @@ This webpage provides a Weather Forecast Dashboard with third-party weather data
 
 [Deployed App](https://chadkraus87.github.io/Weather-Dashboard)
 
-![Front End Landing Page](assets/images/weather-dashboard.png)
+![Front End Landing Page](assets/images/weather-frontend.png)
 
 ## Installation
 

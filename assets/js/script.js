@@ -55,7 +55,7 @@ function getFormattedDate(date) {
 function searchCity(city) {
   document.querySelector("#current-weather").classList.remove("hide-div");
   document.querySelector("#forecast").classList.remove("hide-div");
-  // add city parameter
+  // add city
   var url =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     city +
@@ -78,7 +78,7 @@ function searchCity(city) {
 }
 
 $(function () {
-  // Define searchCity function and other code here
+  // searchCity function
   $("#search-button").click(function () {    
     searchCity($("#city-input").val()); // pass city parameter
   });
